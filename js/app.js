@@ -7,6 +7,7 @@ let wrongPlayedLetterArray = [];
 let goodPlayedLetterArray = [];
 const wordLetter = document.getElementById("word");
 const board =  document.getElementsByClassName("letterPlay");
+const keyBoard = document.getElementById("board");
 const endGame = document.getElementById("endGame");
 const playedLetter =  document.getElementById("playedLetter");
 const numberChance = document.getElementById("numberChance");
@@ -54,6 +55,7 @@ function checkWin (letter) {
                 if (goodLetter === currentWord.length) {
                     endGame.innerHTML = "Vous avez gagné ! ";
                     replay.style.display = "inline";
+                    keyBoard.style.display = "none";
                 }
             }
         }
@@ -63,11 +65,12 @@ function checkLoose(letter) {
     if (!goodPlayedLetterArray.includes(letter.innerHTML) && !wrongPlayedLetterArray.includes(letter.innerHTML)) {
         wrongPlayedLetterArray.push(letter.innerHTML);
         wrongLetter++;
-        numberChance.src = "/img/" + wrongLetter.toString() + ".jpg" ;
+        numberChance.src = "img/" + wrongLetter.toString() + ".jpg" ;
     }
     if (wrongLetter === 8) {
         endGame.innerHTML = "Vous avez perdu ! Le mot était " + currentWord;
         replay.style.display = "inline";
+        keyBoard.style.display = "none";
     }
 }
 
@@ -81,5 +84,7 @@ replay.addEventListener("click", function () {
     numberChance.src = "/img/" + wrongLetter.toString() + ".jpg";
     playedLetter.innerHTML ="";
     replay.style.display = "none";
+    keyBoard.style.display = "flex";
     drawWord(random(wordArray));
+
 })
