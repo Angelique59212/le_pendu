@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+#word {
+    display: flex;
+    justify-content: space-around;
+}
+
+.letter {
+    padding: 1rem;
+    border-bottom: 1px solid black;
+}
+
+#board {
+    display: flex;
+    width: 70vw;
+    height: 20vh;
+    margin: 0 auto;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-content: space-around ;
+}
+
+.letterPlay {
+    padding: 2rem;
+    text-align: center;
+    background-color: lightblue;
+    color: white;
+    cursor: pointer;
+}
+
+#replay {
+    display: none;
+}
